@@ -1,0 +1,20 @@
+{
+  "name": "notebook-lm-backend",
+  "version": "1.0.0",
+  "description": "clone of google's notebooklm",
+  "homepage": "https://github.com/SahO-ux/notebook-lm-backend#readme",
+  "bugs": {
+    "url": "https://github.com/SahO-ux/notebook-lm-backend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SahO-ux/notebook-lm-backend.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
