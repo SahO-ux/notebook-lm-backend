@@ -6,6 +6,8 @@ Steps to generate HuggingFace API Key:-
    Make calls to Inference Providers
    Make calls to your Inference Endpoints
    Manage your Inference Endpoints
+- Click on Create Token, present at bottom
+- Now copy your api token and paste it somewhere, since it can't be seen again
 
 SAMPLE .env
 
