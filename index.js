@@ -31,12 +31,19 @@ app.use(morgan("common"));
 // Test route
 app.get("/", (req, res) => res.json("Hello"));
 
+// Load routes/modules
+await loadModules(app);
+
+// ❌ Don't use app.listen() on Vercel
+// ✅ Export the app instead
+export default app;
+
 // Startup
-const startServer = async () => {
-  await loadModules(app);
-  const PORT = process.env.PORT || 4000;
-  app.listen(PORT, () =>
-    console.log(`🚀 Server running at http://localhost:${PORT}`)
-  );
-};
-startServer();
+// const startServer = async () => {
+//   await loadModules(app);
+//   const PORT = process.env.PORT || 4000;
+//   app.listen(PORT, () =>
+//     console.log(`🚀 Server running at http://localhost:${PORT}`)
+//   );
+// };
+// startServer();
