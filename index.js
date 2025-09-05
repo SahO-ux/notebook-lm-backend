@@ -10,16 +10,16 @@ dotenv.config();
 const app = express();
 
 // CORS Configuration: Allow only specific frontend origin
-const allowedOrigins = ["https://notebook-lm-frontend-one.vercel.app/"];
-const corsOptions = {
-  origin: allowedOrigins,
-  methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"], // Allow specific methods
-  credentials: true, // Allow credentials (cookies, authorization headers)
-  allowedHeaders: ["Content-Type", "Authorization"], // Allow specific headers
-};
+// const allowedOrigins = ["https://notebook-lm-frontend-one.vercel.app/"];
+// const corsOptions = {
+//   origin: allowedOrigins,
+//   methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"], // Allow specific methods
+//   credentials: true, // Allow credentials (cookies, authorization headers)
+//   allowedHeaders: ["Content-Type", "Authorization"], // Allow specific headers
+// };
 
 // Apply CORS middleware globally
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Middleware
 app.use(express.json({ limit: "20mb" }));
