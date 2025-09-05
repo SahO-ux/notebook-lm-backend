@@ -1,19 +1,8 @@
 import multer from "multer";
-import path from "path";
 
 import { services } from "../../modulesLoader.js";
-// import { UPLOAD_DIR } from "./pdf-constant.js";
 
 export const controllerName = "PDF";
-
-// const storage = multer.diskStorage({
-//   destination: (_req, _file, cb) => cb(null, UPLOAD_DIR),
-//   filename: (_req, file, cb) => {
-//     const unique = Date.now() + "-" + Math.round(Math.random() * 1e9);
-//     cb(null, unique + path.extname(file.originalname));
-//   },
-// });
-// export const upload = multer({ storage });
 
 const storage = multer.memoryStorage();
 export const upload = multer({ storage });
@@ -23,7 +12,6 @@ const uploadFile = async (req, res) => {
   try {
     if (!req.file) return res.status(400).send({ error: "No file uploaded" });
     const pdfService = services.PDFService;
-    // const pages = await pdfService.extractPdfPages(req.file.path);
     const pages = await pdfService.extractPdfPages(req.file.buffer);
     pdfService.VECTOR_DB.items = [];
 

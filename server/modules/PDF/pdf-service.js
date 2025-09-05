@@ -26,16 +26,6 @@ const chunkText = (text, maxWords = 200) => {
   return chunks;
 };
 
-// Extract PDF text per page
-// export const extractPdfPages = async (filePath) => {
-//   const dataBuffer = fs.readFileSync(filePath);
-//   const data = await pdfParse(dataBuffer);
-//   return data.text.split(/\f/).map((txt, i) => ({
-//     pageNumber: i + 1,
-//     text: txt.trim(),
-//   }));
-// };
-
 export const extractPdfPages = async (fileBuffer) => {
   const data = await pdfParse(fileBuffer);
   return data.text.split(/\f/).map((txt, i) => ({
