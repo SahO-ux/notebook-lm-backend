@@ -1,5 +1,5 @@
 import fs from "fs-extra";
-import pdfParse from "pdf-parse";
+import pdfParse from "pdf-parse/lib/pdf-parse.js";
 import axios from "axios";
 import { VECTOR_STORE } from "./pdf-constant.js";
 
