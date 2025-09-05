@@ -1,0 +1,31 @@
+import express from "express";
+import helmet from "helmet";
+import morgan from "morgan";
+import cors from "cors";
+import dotenv from "dotenv";
+
+import { loadModules } from "./server/modulesLoader.js";
+
+dotenv.config();
+const app = express();
+
+// Middleware
+app.use(cors());
+app.use(express.json({ limit: "20mb" }));
+app.use(express.urlencoded({ limit: "10mb", extended: true }));
+app.use(helmet());
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
+app.use(morgan("common"));
+
+// Test route
+app.get("/", (req, res) => res.json("Hello"));
+
+// Startup
+const startServer = async () => {
+  await loadModules(app);
+  const PORT = process.env.PORT || 4000;
+  app.listen(PORT, () =>
+    console.log(`🚀 Server running at http://localhost:${PORT}`)
+  );
+};
+startServer();
