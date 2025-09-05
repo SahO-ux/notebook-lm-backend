@@ -28,9 +28,6 @@ app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 
-// Handle preflight OPTIONS requests
-app.options("*", cors(corsOptions)); // Preflight requests
-
 // Test route
 app.get("/", (req, res) => res.json("Hello"));
 
